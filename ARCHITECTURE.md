@@ -732,7 +732,7 @@ Key catalog fields:
 
 ### 14.3 Add a new IPC message
 
-1. **Backend → Frontend:** In `electron/main.ts` (or `PixelAgentsViewProvider.ts`), call `webview.postMessage({ type: 'myNew', ...payload })`
+1. **Backend → Frontend:** In `electron/main.ts`, call `webview.postMessage({ type: 'myNew', ...payload })`
 2. **Frontend handler:** In `useExtensionMessages.ts`, add `else if (msg.type === 'myNew')` branch
 3. **Frontend → Backend:** Send via `vscode.postMessage({ type: 'myNew', ...payload })` (the `vscode` export from `vscodeApi.ts`)
 4. **Backend handler:** In `electron/main.ts` `ipcMain.on('webview-message', ...)` handler, add case
