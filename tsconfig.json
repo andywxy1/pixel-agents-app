@@ -1,0 +1,22 @@
+{
+	"compilerOptions": {
+		"module": "Node16",
+		"target": "ES2022",
+		"lib": ["ES2022", "DOM"],
+		"sourceMap": true,
+		"strict": true,
+		"moduleResolution": "Node16",
+		"esModuleInterop": true,
+		"skipLibCheck": true
+	},
+	"include": [
+		"electron/**/*",
+		"src/**/*"
+	],
+	"exclude": [
+		"node_modules",
+		"dist",
+		"webview-ui",
+		"scripts"
+	]
+}

@@ -1,0 +1,48 @@
+{
+  "appId": "com.pablodelucca.pixel-agents",
+  "productName": "Pixel Agents",
+  "copyright": "Copyright © 2025 Pablo de la Lucca",
+  "directories": {
+    "output": "release",
+    "buildResources": "build"
+  },
+  "files": [
+    "dist/electron/**/*",
+    "dist/webview/**/*",
+    "dist/assets/**/*",
+    "package.json"
+  ],
+  "extraResources": [
+    {
+      "from": "webview-ui/public/assets",
+      "to": "assets",
+      "filter": ["**/*"]
+    }
+  ],
+  "asar": true,
+  "mac": {
+    "icon": "build/icon.png",
+    "target": [
+      {
+        "target": "dmg",
+        "arch": ["arm64", "x64"]
+      },
+      {
+        "target": "zip",
+        "arch": ["arm64", "x64"]
+      }
+    ],
+    "category": "public.app-category.developer-tools"
+  },
+  "dmg": {
+    "title": "${productName} ${version}",
+    "contents": [
+      { "x": 130, "y": 220 },
+      { "x": 410, "y": 220, "type": "link", "path": "/Applications" }
+    ],
+    "window": {
+      "width": 540,
+      "height": 380
+    }
+  }
+}

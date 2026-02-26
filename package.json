@@ -1,0 +1,45 @@
+{
+  "name": "pixel-agents",
+  "displayName": "Pixel Agents",
+  "description": "Pixel art office where your Claude Code agents come to life as animated characters",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/andywxy1/pixel-agents-app"
+  },
+  "icon": "icon.png",
+  "author": {
+    "name": "Seventeen"
+  },
+  "license": "MIT",
+  "main": "./dist/electron/main.js",
+  "scripts": {
+    "build:webview": "cd webview-ui && npm run build",
+    "build": "npm run build:electron",
+    "build:electron": "node esbuild.electron.js && npm run build:webview",
+    "build:electron:prod": "node esbuild.electron.js --production && npm run build:webview",
+    "watch": "npm-run-all -p watch:electron-main watch:webview",
+    "watch:electron-main": "node esbuild.electron.js --watch",
+    "watch:webview": "cd webview-ui && npm run dev",
+    "start": "npm run build:electron && electron .",
+    "start:dev": "ELECTRON_DEV_URL=http://localhost:5173 electron .",
+    "check-types": "tsc --noEmit",
+    "lint": "eslint src",
+    "import-tileset": "tsx scripts/import-tileset-cli.ts",
+    "package:mac": "npm run build:electron:prod && CSC_IDENTITY_AUTO_DISCOVERY=false electron-builder --mac --publish=never"
+  },
+  "devDependencies": {
+    "@anthropic-ai/sdk": "^0.74.0",
+    "@types/node": "22.x",
+    "@types/pngjs": "^6.0.5",
+    "esbuild": "^0.27.2",
+    "electron": "^33.0.0",
+    "electron-builder": "^25.0.0",
+    "eslint": "^9.39.2",
+    "npm-run-all": "^4.1.5",
+    "pngjs": "^7.0.0",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.54.0"
+  }
+}
