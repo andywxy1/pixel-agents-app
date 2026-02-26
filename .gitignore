@@ -7,3 +7,4 @@ node_modules
 .env
 release/
 .DS_Store
+ARCHITECTURE.md
